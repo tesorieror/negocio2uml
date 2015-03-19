@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML">
+  <uml:Package xmi:id="_NfKuEM2XEeSwDYqkXA0I0A" name="libreria">
+    <packagedElement xmi:type="uml:Class" xmi:id="_NfKuEc2XEeSwDYqkXA0I0A" name="Libreria">
+      <generalization xmi:type="uml:Generalization" xmi:id="_NfKuEs2XEeSwDYqkXA0I0A" general="_NfKuHM2XEeSwDYqkXA0I0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NfKuE82XEeSwDYqkXA0I0A" name="Libro">
+      <generalization xmi:type="uml:Generalization" xmi:id="_NfKuFM2XEeSwDYqkXA0I0A" general="_NfKuH82XEeSwDYqkXA0I0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NfKuFc2XEeSwDYqkXA0I0A" name="ClienteParticular">
+      <generalization xmi:type="uml:Generalization" xmi:id="_NfKuFs2XEeSwDYqkXA0I0A" general="_NfKuHs2XEeSwDYqkXA0I0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NfKuF82XEeSwDYqkXA0I0A" name="Cliente">
+      <generalization xmi:type="uml:Generalization" xmi:id="_NfKuGM2XEeSwDYqkXA0I0A" general="_NfKuHc2XEeSwDYqkXA0I0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NfKuGc2XEeSwDYqkXA0I0A" name="Proveedor">
+      <generalization xmi:type="uml:Generalization" xmi:id="_NfKuGs2XEeSwDYqkXA0I0A" general="_NfKuHc2XEeSwDYqkXA0I0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_WhylI82XEeSwDYqkXA0I0A" name="libreria_libro_1" memberEnd="_WhylJM2XEeSwDYqkXA0I0A _WhylIM2XEeSwDYqkXA0I0A" navigableOwnedEnd="_WhylIM2XEeSwDYqkXA0I0A">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_WhylJM2XEeSwDYqkXA0I0A" name="libreria" type="_NfKuEc2XEeSwDYqkXA0I0A" association="_WhylI82XEeSwDYqkXA0I0A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WhylJc2XEeSwDYqkXA0I0A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WhylJs2XEeSwDYqkXA0I0A" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_WhylIM2XEeSwDYqkXA0I0A" name="libros" type="_NfKuE82XEeSwDYqkXA0I0A" aggregation="composite" association="_WhylI82XEeSwDYqkXA0I0A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WhylIc2XEeSwDYqkXA0I0A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WhylIs2XEeSwDYqkXA0I0A" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+  </uml:Package>
+  <uml:Package xmi:id="_NfKuG82XEeSwDYqkXA0I0A" name="commons">
+    <packagedElement xmi:type="uml:Class" xmi:id="_NfKuHM2XEeSwDYqkXA0I0A" name="Negocio"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NfKuHc2XEeSwDYqkXA0I0A" name="PersonaJuridica"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NfKuHs2XEeSwDYqkXA0I0A" name="PersonaFisica"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NfKuH82XEeSwDYqkXA0I0A" name="Producto"/>
+  </uml:Package>
+</xmi:XMI>

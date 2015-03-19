@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML">
+  <uml:Package xmi:id="_t0t_cM2fEeSwDYqkXA0I0A" name="libreria">
+    <packagedElement xmi:type="uml:Class" xmi:id="_t0t_cc2fEeSwDYqkXA0I0A" name="Libreria">
+      <generalization xmi:id="_t0t_cs2fEeSwDYqkXA0I0A" general="_t0t_f82fEeSwDYqkXA0I0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_t0t_c82fEeSwDYqkXA0I0A" name="Libro">
+      <generalization xmi:id="_t0t_dM2fEeSwDYqkXA0I0A" general="_t0t_gs2fEeSwDYqkXA0I0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_t0t_dc2fEeSwDYqkXA0I0A" name="libreria_libros" memberEnd="_t0t_ds2fEeSwDYqkXA0I0A _t0t_d82fEeSwDYqkXA0I0A" navigableOwnedEnd="_t0t_ds2fEeSwDYqkXA0I0A _t0t_d82fEeSwDYqkXA0I0A">
+      <ownedEnd xmi:id="_t0t_ds2fEeSwDYqkXA0I0A" name="libreria" type="_t0t_cc2fEeSwDYqkXA0I0A" association="_t0t_dc2fEeSwDYqkXA0I0A"/>
+      <ownedEnd xmi:id="_t0t_d82fEeSwDYqkXA0I0A" name="libros" type="_t0t_c82fEeSwDYqkXA0I0A" aggregation="composite" association="_t0t_dc2fEeSwDYqkXA0I0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_t0t_eM2fEeSwDYqkXA0I0A" name="ClienteParticular">
+      <generalization xmi:id="_t0t_ec2fEeSwDYqkXA0I0A" general="_t0t_gc2fEeSwDYqkXA0I0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_t0t_es2fEeSwDYqkXA0I0A" name="Cliente">
+      <generalization xmi:id="_t0t_e82fEeSwDYqkXA0I0A" general="_t0t_gM2fEeSwDYqkXA0I0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_t0t_fM2fEeSwDYqkXA0I0A" name="Proveedor">
+      <generalization xmi:id="_t0t_fc2fEeSwDYqkXA0I0A" general="_t0t_gM2fEeSwDYqkXA0I0A"/>
+    </packagedElement>
+  </uml:Package>
+  <uml:Package xmi:id="_t0t_fs2fEeSwDYqkXA0I0A" name="commons">
+    <packagedElement xmi:type="uml:Class" xmi:id="_t0t_f82fEeSwDYqkXA0I0A" name="Negocio"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_t0t_gM2fEeSwDYqkXA0I0A" name="PersonaJuridica"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_t0t_gc2fEeSwDYqkXA0I0A" name="PersonaFisica"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_t0t_gs2fEeSwDYqkXA0I0A" name="Producto"/>
+  </uml:Package>
+</xmi:XMI>

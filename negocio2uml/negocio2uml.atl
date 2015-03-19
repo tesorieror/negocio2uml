@@ -1,0 +1,106 @@
+-- @nsURI UmlMM=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI NegocioMM=http://negocio/1.0
+
+
+module negocio2uml;
+create uml: UmlMM from negocio: NegocioMM;
+
+rule Negocio2Class {
+	from
+		n: NegocioMM!Negocio
+	to
+		umlClassNegocioConcrete: UmlMM!Class (
+			name <- n.nombre,
+			package <- negocioPkg,
+			superClass <- umlClassNegocio
+		),
+		negocioPkg: UmlMM!Package (
+			name <- n.nombre.toLower()
+		),
+		commonsPkg: UmlMM!Package (
+			name <- 'commons'
+		),
+		umlClassNegocio: UmlMM!Class (
+			name <- 'Negocio',
+			package <- commonsPkg
+		),
+		umlClassPersonaJuridica: UmlMM!Class (
+			name <- 'PersonaJuridica',
+			package <- commonsPkg
+		),
+		umlClassPersonaFisica: UmlMM!Class (
+			name <- 'PersonaFisica',
+			package <- commonsPkg
+		),
+		umlClassProducto: UmlMM!Class (
+			name <- 'Producto',
+			package <- commonsPkg
+		)
+}
+
+rule Producto2Class {
+	from
+		nProducto: NegocioMM!Producto
+	to
+		umlClassProducto: UmlMM!Class (
+			name <- nProducto.nombre,
+			superClass <- thisModule -> resolveTemp(nProducto.negocio,
+					'umlClassProducto'),
+			package <- thisModule -> resolveTemp(nProducto.negocio, 'negocioPkg')
+		),
+		umlAssociationProductos: UmlMM!Association (
+			--ownedEnd <- thisModule -> resolveTemp(nProducto.negocio,
+					-- 'umlClassNegocioConcrete')
+			--,
+			memberEnd <- Sequence{umlPropertyNegocio,
+						umlPropertyProductos},
+			navigableOwnedEnd <- Sequence{umlPropertyNegocio, umlPropertyProductos},
+			package <- thisModule -> resolveTemp(nProducto.negocio, 'negocioPkg'),
+			name <- nProducto.negocio.nombre.toLower() + '_' + nProducto.nombre.toLower()
+					+ 's'
+		),
+		umlPropertyNegocio: UmlMM!Property (
+			name <- nProducto.negocio.nombre.toLower(),
+			association <- umlAssociationProductos,
+			type <- nProducto.negocio
+		),
+		umlPropertyProductos: UmlMM!Property (
+			name <- nProducto.nombre.toLower() + 's',
+			association <- umlAssociationProductos,
+			type <- umlClassProducto,
+			aggregation <- #composite
+		)
+}
+
+rule PersonaFisica2Class {
+	from
+		nPersonaFisica: NegocioMM!Persona (
+			nPersonaFisica.tipo = #FISICA
+		)
+	to
+		umlClassPersonaFisica: UmlMM!Class (
+			name <- nPersonaFisica.nombre,
+			superClass <- thisModule -> resolveTemp(nPersonaFisica.negocio,
+					'umlClassPersonaFisica'),
+			package <- thisModule -> resolveTemp(nPersonaFisica.negocio, 'negocioPkg')
+		) --,
+		--aPersonaFisica: UmlMM!Association (
+			--ownedEnd <- nPersonaFisica.negocio,
+			--memberEnd <- nPersonaFisica
+		--)
+	
+}
+
+rule PersonaJuridica2Class {
+	from
+		nPersonaJuridica: NegocioMM!Persona (
+			nPersonaJuridica.tipo = #JURIDICA
+		)
+	to
+		umlClassPersonaJuridica: UmlMM!Class (
+			name <- nPersonaJuridica.nombre,
+			superClass <- thisModule -> resolveTemp(nPersonaJuridica.negocio,
+					'umlClassPersonaJuridica'),
+			package <- thisModule -> resolveTemp(nPersonaJuridica.negocio, 'negocioPkg')
+		)
+}
