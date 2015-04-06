@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <negocio:Negocio xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:negocio="http://negocio/1.0" nombre="Libreria">
-  <personas id="1" nombre="Cliente"/>
+  <personas id="1" nombre="ClienteEmpresa"/>
   <personas id="2" nombre="Proveedor"/>
   <personas id="3" nombre="ClienteParticular" tipo="FISICA"/>
   <productos nombre="Libro"/>

@@ -1,4 +1,5 @@
 -- @nsURI UmlMM=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI UmlTypesMM=http://www.eclipse.org/
 -- @nsURI NegocioMM=http://negocio/1.0
 
 
@@ -12,7 +13,12 @@ rule Negocio2Class {
 		umlClassNegocioConcrete: UmlMM!Class (
 			name <- n.nombre,
 			package <- negocioPkg,
-			superClass <- umlClassNegocio
+			superClass <- umlClassNegocio,
+			ownedAttribute <- Sequence{umlNombreNegocio}
+		),
+		umlNombreNegocio: UmlMM!Property (
+			name <- 'nombre',
+			type <- umlStringType
 		),
 		negocioPkg: UmlMM!Package (
 			name <- n.nombre.toLower()
@@ -34,7 +40,41 @@ rule Negocio2Class {
 		),
 		umlClassProducto: UmlMM!Class (
 			name <- 'Producto',
-			package <- commonsPkg
+			package <- commonsPkg,
+			ownedAttribute <- Sequence{umlPrecioProductoAttribute,
+						umlStockProductoAttribute,
+						umlStockMinProductoAttribute}
+		),
+		umlStockProductoAttribute: UmlMM!Property (
+			name <- 'stock',
+			type <- umlIntegerType
+		),
+		umlStockMinProductoAttribute: UmlMM!Property (
+			name <- 'stockMin',
+			type <- umlIntegerType
+		),
+		umlPrecioProductoAttribute: UmlMM!Property (
+			name <- 'precio',
+			type <- umlMoneyType
+		),
+		primitivesPkg: UmlMM!Package (
+			name <- 'primitives'
+		),
+		umlIntegerType: UmlMM!DataType (
+			name <- 'Integer',
+			package <- primitivesPkg
+		),
+		umlStringType: UmlMM!DataType (
+			name <- 'String',
+			package <- primitivesPkg
+		),
+		umlMoneyType: UmlMM!DataType (
+			name <- 'Money',
+			package <- primitivesPkg
+		),
+		umlDateType: UmlMM!DataType (
+			name <- 'Date',
+			package <- primitivesPkg
 		)
 }
 
@@ -54,7 +94,8 @@ rule Producto2Class {
 			--,
 			memberEnd <- Sequence{umlPropertyNegocio,
 						umlPropertyProductos},
-			navigableOwnedEnd <- Sequence{umlPropertyNegocio, umlPropertyProductos},
+			navigableOwnedEnd <- Sequence{umlPropertyNegocio,
+						umlPropertyProductos},
 			package <- thisModule -> resolveTemp(nProducto.negocio, 'negocioPkg'),
 			name <- nProducto.negocio.nombre.toLower() + '_' + nProducto.nombre.toLower()
 					+ 's'
@@ -62,13 +103,17 @@ rule Producto2Class {
 		umlPropertyNegocio: UmlMM!Property (
 			name <- nProducto.negocio.nombre.toLower(),
 			association <- umlAssociationProductos,
-			type <- nProducto.negocio
+			type <- nProducto.negocio,
+			upper <- -1,
+			lower <- 0
 		),
 		umlPropertyProductos: UmlMM!Property (
 			name <- nProducto.nombre.toLower() + 's',
 			association <- umlAssociationProductos,
 			type <- umlClassProducto,
-			aggregation <- #composite
+			aggregation <- #composite,
+			upper <- 1,
+			lower <- 1
 		)
 }
 
