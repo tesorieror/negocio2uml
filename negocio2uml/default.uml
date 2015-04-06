@@ -1,47 +1,143 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML">
-  <uml:Package xmi:id="_ZkhY4NyWEeSMca3X_2t5fA" name="libreria">
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZkhY4dyWEeSMca3X_2t5fA" name="Libreria">
-      <generalization xmi:id="_ZkhY4tyWEeSMca3X_2t5fA" general="_ZkhY9NyWEeSMca3X_2t5fA"/>
-      <ownedAttribute xmi:id="_ZkhY49yWEeSMca3X_2t5fA" name="nombre" type="_ZkhY_dyWEeSMca3X_2t5fA"/>
+<xmi:XMI xmi:version="20110701"
+    xmlns:xmi="http://www.omg.org/spec/XMI/20110701"
+    xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML">
+  <uml:Package
+      xmi:id="_ZkhY4NyWEeSMca3X_2t5fA"
+      name="libreria">
+    <packageImport
+        xmi:id="_ctySENylEeSMca3X_2t5fA"/>
+    <packagedElement
+        xmi:type="uml:Class"
+        xmi:id="_ZkhY4dyWEeSMca3X_2t5fA"
+        name="Libreria">
+      <generalization
+          xmi:id="_ZkhY4tyWEeSMca3X_2t5fA"
+          general="_ZkhY9NyWEeSMca3X_2t5fA"/>
+      <ownedAttribute
+          xmi:id="_ZkhY49yWEeSMca3X_2t5fA"
+          name="nombre"
+          type="_ZkhY_dyWEeSMca3X_2t5fA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZkhY5NyWEeSMca3X_2t5fA" name="Libro">
-      <generalization xmi:id="_ZkhY5dyWEeSMca3X_2t5fA" general="_ZkhY99yWEeSMca3X_2t5fA"/>
+    <packagedElement
+        xmi:type="uml:Class"
+        xmi:id="_ZkhY5NyWEeSMca3X_2t5fA"
+        name="Libro">
+      <generalization
+          xmi:id="_ZkhY5dyWEeSMca3X_2t5fA"
+          general="_ZkhY99yWEeSMca3X_2t5fA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_ZkhY5tyWEeSMca3X_2t5fA" name="libreria_libros" memberEnd="_ZkhY59yWEeSMca3X_2t5fA _ZkhY6tyWEeSMca3X_2t5fA" navigableOwnedEnd="_ZkhY59yWEeSMca3X_2t5fA _ZkhY6tyWEeSMca3X_2t5fA">
-      <ownedEnd xmi:id="_ZkhY59yWEeSMca3X_2t5fA" name="libreria" type="_ZkhY4dyWEeSMca3X_2t5fA" association="_ZkhY5tyWEeSMca3X_2t5fA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZkhY6NyWEeSMca3X_2t5fA"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZkhY6dyWEeSMca3X_2t5fA" value="*"/>
+    <packagedElement
+        xmi:type="uml:Association"
+        xmi:id="_ZkhY5tyWEeSMca3X_2t5fA"
+        name="libreria_libros"
+        memberEnd="_ZkhY59yWEeSMca3X_2t5fA _ZkhY6tyWEeSMca3X_2t5fA"
+        navigableOwnedEnd="_ZkhY59yWEeSMca3X_2t5fA _ZkhY6tyWEeSMca3X_2t5fA">
+      <ownedEnd
+          xmi:id="_ZkhY59yWEeSMca3X_2t5fA"
+          name="libreria"
+          type="_ZkhY4dyWEeSMca3X_2t5fA"
+          association="_ZkhY5tyWEeSMca3X_2t5fA">
+        <lowerValue
+            xmi:type="uml:LiteralInteger"
+            xmi:id="_ZkhY6NyWEeSMca3X_2t5fA"/>
+        <upperValue
+            xmi:type="uml:LiteralUnlimitedNatural"
+            xmi:id="_ZkhY6dyWEeSMca3X_2t5fA"
+            value="*"/>
       </ownedEnd>
-      <ownedEnd xmi:id="_ZkhY6tyWEeSMca3X_2t5fA" name="libros" type="_ZkhY5NyWEeSMca3X_2t5fA" aggregation="composite" association="_ZkhY5tyWEeSMca3X_2t5fA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZkhY69yWEeSMca3X_2t5fA" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZkhY7NyWEeSMca3X_2t5fA" value="1"/>
+      <ownedEnd
+          xmi:id="_ZkhY6tyWEeSMca3X_2t5fA"
+          name="libros"
+          type="_ZkhY5NyWEeSMca3X_2t5fA"
+          aggregation="composite"
+          association="_ZkhY5tyWEeSMca3X_2t5fA">
+        <lowerValue
+            xmi:type="uml:LiteralInteger"
+            xmi:id="_ZkhY69yWEeSMca3X_2t5fA"
+            value="1"/>
+        <upperValue
+            xmi:type="uml:LiteralUnlimitedNatural"
+            xmi:id="_ZkhY7NyWEeSMca3X_2t5fA"
+            value="1"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZkhY7dyWEeSMca3X_2t5fA" name="ClienteParticular">
-      <generalization xmi:id="_ZkhY7tyWEeSMca3X_2t5fA" general="_ZkhY9tyWEeSMca3X_2t5fA"/>
+    <packagedElement
+        xmi:type="uml:Class"
+        xmi:id="_ZkhY7dyWEeSMca3X_2t5fA"
+        name="ClienteParticular">
+      <generalization
+          xmi:id="_ZkhY7tyWEeSMca3X_2t5fA"
+          general="_ZkhY9tyWEeSMca3X_2t5fA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZkhY79yWEeSMca3X_2t5fA" name="ClienteEmpresa">
-      <generalization xmi:id="_ZkhY8NyWEeSMca3X_2t5fA" general="_ZkhY9dyWEeSMca3X_2t5fA"/>
+    <packagedElement
+        xmi:type="uml:Class"
+        xmi:id="_ZkhY79yWEeSMca3X_2t5fA"
+        name="ClienteEmpresa">
+      <generalization
+          xmi:id="_ZkhY8NyWEeSMca3X_2t5fA"
+          general="_ZkhY9dyWEeSMca3X_2t5fA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZkhY8dyWEeSMca3X_2t5fA" name="Proveedor">
-      <generalization xmi:id="_ZkhY8tyWEeSMca3X_2t5fA" general="_ZkhY9dyWEeSMca3X_2t5fA"/>
+    <packagedElement
+        xmi:type="uml:Class"
+        xmi:id="_ZkhY8dyWEeSMca3X_2t5fA"
+        name="Proveedor">
+      <generalization
+          xmi:id="_ZkhY8tyWEeSMca3X_2t5fA"
+          general="_ZkhY9dyWEeSMca3X_2t5fA"/>
     </packagedElement>
   </uml:Package>
-  <uml:Package xmi:id="_ZkhY89yWEeSMca3X_2t5fA" name="commons">
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZkhY9NyWEeSMca3X_2t5fA" name="Negocio"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZkhY9dyWEeSMca3X_2t5fA" name="PersonaJuridica"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZkhY9tyWEeSMca3X_2t5fA" name="PersonaFisica"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_ZkhY99yWEeSMca3X_2t5fA" name="Producto">
-      <ownedAttribute xmi:id="_ZkhY-NyWEeSMca3X_2t5fA" name="precio" type="_ZkhY_tyWEeSMca3X_2t5fA"/>
-      <ownedAttribute xmi:id="_ZkhY-dyWEeSMca3X_2t5fA" name="stock" type="_ZkhY_NyWEeSMca3X_2t5fA"/>
-      <ownedAttribute xmi:id="_ZkhY-tyWEeSMca3X_2t5fA" name="stockMin" type="_ZkhY_NyWEeSMca3X_2t5fA"/>
+  <uml:Package
+      xmi:id="_ZkhY89yWEeSMca3X_2t5fA"
+      name="commons">
+    <packagedElement
+        xmi:type="uml:Class"
+        xmi:id="_ZkhY9NyWEeSMca3X_2t5fA"
+        name="Negocio"/>
+    <packagedElement
+        xmi:type="uml:Class"
+        xmi:id="_ZkhY9dyWEeSMca3X_2t5fA"
+        name="PersonaJuridica"/>
+    <packagedElement
+        xmi:type="uml:Class"
+        xmi:id="_ZkhY9tyWEeSMca3X_2t5fA"
+        name="PersonaFisica"/>
+    <packagedElement
+        xmi:type="uml:Class"
+        xmi:id="_ZkhY99yWEeSMca3X_2t5fA"
+        name="Producto">
+      <ownedAttribute
+          xmi:id="_ZkhY-NyWEeSMca3X_2t5fA"
+          name="precio"
+          type="_ZkhY_tyWEeSMca3X_2t5fA"/>
+      <ownedAttribute
+          xmi:id="_ZkhY-dyWEeSMca3X_2t5fA"
+          name="stock"
+          type="_ZkhY_NyWEeSMca3X_2t5fA"/>
+      <ownedAttribute
+          xmi:id="_ZkhY-tyWEeSMca3X_2t5fA"
+          name="stockMin"
+          type="_ZkhY_NyWEeSMca3X_2t5fA"/>
     </packagedElement>
   </uml:Package>
-  <uml:Package xmi:id="_ZkhY-9yWEeSMca3X_2t5fA" name="primitives">
-    <packagedElement xmi:type="uml:DataType" xmi:id="_ZkhY_NyWEeSMca3X_2t5fA" name="Integer"/>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_ZkhY_dyWEeSMca3X_2t5fA" name="String"/>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_ZkhY_tyWEeSMca3X_2t5fA" name="Money"/>
-    <packagedElement xmi:type="uml:DataType" xmi:id="_ZkhY_9yWEeSMca3X_2t5fA" name="Date"/>
+  <uml:Package
+      xmi:id="_ZkhY-9yWEeSMca3X_2t5fA"
+      name="primitives">
+    <packagedElement
+        xmi:type="uml:DataType"
+        xmi:id="_ZkhY_NyWEeSMca3X_2t5fA"
+        name="Integer"/>
+    <packagedElement
+        xmi:type="uml:DataType"
+        xmi:id="_ZkhY_dyWEeSMca3X_2t5fA"
+        name="String"/>
+    <packagedElement
+        xmi:type="uml:DataType"
+        xmi:id="_ZkhY_tyWEeSMca3X_2t5fA"
+        name="Money"/>
+    <packagedElement
+        xmi:type="uml:DataType"
+        xmi:id="_ZkhY_9yWEeSMca3X_2t5fA"
+        name="Date"/>
   </uml:Package>
 </xmi:XMI>

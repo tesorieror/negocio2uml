@@ -48,6 +48,14 @@
     <element xmi:type="negocio:Producto" href="default.negocio#//@productos.0"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C-CMFM1fEeSwDYqkXA0I0A" x="763" y="44"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_MkK1ENyjEeSMca3X_2t5fA" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_MkK1FdyjEeSMca3X_2t5fA" type="5001"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_MkK1EdyjEeSMca3X_2t5fA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_MkK1EtyjEeSMca3X_2t5fA" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_MkK1E9yjEeSMca3X_2t5fA"/>
+    <element xmi:type="negocio:AtributoSimple" href="default.negocio#//@atributos.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MkK1FNyjEeSMca3X_2t5fA" x="428" y="308"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_hSNHcc1aEeSDYoCA5pgJCg"/>
   <element xmi:type="negocio:Negocio" href="default.negocio#/"/>
 </notation:Diagram>

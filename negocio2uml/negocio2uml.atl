@@ -1,5 +1,5 @@
 -- @nsURI UmlMM=http://www.eclipse.org/uml2/4.0.0/UML
--- @nsURI UmlTypesMM=http://www.eclipse.org/
+-- @nsURI UmlTypesMM=http://www.eclipse.org/uml2/4.0.0/Types
 -- @nsURI NegocioMM=http://negocio/1.0
 
 
@@ -77,6 +77,19 @@ rule Negocio2Class {
 			package <- primitivesPkg
 		)
 }
+
+rule AtributoSimple2Property{
+from 
+	nAtributoSimple: NegocioMM!AtributoSimple
+to
+	umlAtributoSimpleProperty: UmlMM!Property(
+		name<- nAtributoSimple.nombre,
+		type <- UmlTypesMM!UnlimitedNatural
+	)
+}
+
+
+
 
 rule Producto2Class {
 	from
