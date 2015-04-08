@@ -1,143 +1,52 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xmi:XMI xmi:version="20110701"
-    xmlns:xmi="http://www.omg.org/spec/XMI/20110701"
-    xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML">
-  <uml:Package
-      xmi:id="_ZkhY4NyWEeSMca3X_2t5fA"
-      name="libreria">
-    <packageImport
-        xmi:id="_ctySENylEeSMca3X_2t5fA"/>
-    <packagedElement
-        xmi:type="uml:Class"
-        xmi:id="_ZkhY4dyWEeSMca3X_2t5fA"
-        name="Libreria">
-      <generalization
-          xmi:id="_ZkhY4tyWEeSMca3X_2t5fA"
-          general="_ZkhY9NyWEeSMca3X_2t5fA"/>
-      <ownedAttribute
-          xmi:id="_ZkhY49yWEeSMca3X_2t5fA"
-          name="nombre"
-          type="_ZkhY_dyWEeSMca3X_2t5fA"/>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML">
+  <uml:Package xmi:id="_c4wDIN0tEeSiI7OV1mLOYA" name="libreria">
+    <packagedElement xmi:type="uml:Class" xmi:id="_c4wDId0tEeSiI7OV1mLOYA" name="Libreria">
+      <generalization xmi:id="_c4wDIt0tEeSiI7OV1mLOYA" general="_c4wDNN0tEeSiI7OV1mLOYA"/>
+      <ownedAttribute xmi:id="_c4wDI90tEeSiI7OV1mLOYA" name="nombre" type="_c4wDPd0tEeSiI7OV1mLOYA"/>
     </packagedElement>
-    <packagedElement
-        xmi:type="uml:Class"
-        xmi:id="_ZkhY5NyWEeSMca3X_2t5fA"
-        name="Libro">
-      <generalization
-          xmi:id="_ZkhY5dyWEeSMca3X_2t5fA"
-          general="_ZkhY99yWEeSMca3X_2t5fA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_c4wDJN0tEeSiI7OV1mLOYA" name="Libro">
+      <generalization xmi:id="_c4wDJd0tEeSiI7OV1mLOYA" general="_c4wDN90tEeSiI7OV1mLOYA"/>
     </packagedElement>
-    <packagedElement
-        xmi:type="uml:Association"
-        xmi:id="_ZkhY5tyWEeSMca3X_2t5fA"
-        name="libreria_libros"
-        memberEnd="_ZkhY59yWEeSMca3X_2t5fA _ZkhY6tyWEeSMca3X_2t5fA"
-        navigableOwnedEnd="_ZkhY59yWEeSMca3X_2t5fA _ZkhY6tyWEeSMca3X_2t5fA">
-      <ownedEnd
-          xmi:id="_ZkhY59yWEeSMca3X_2t5fA"
-          name="libreria"
-          type="_ZkhY4dyWEeSMca3X_2t5fA"
-          association="_ZkhY5tyWEeSMca3X_2t5fA">
-        <lowerValue
-            xmi:type="uml:LiteralInteger"
-            xmi:id="_ZkhY6NyWEeSMca3X_2t5fA"/>
-        <upperValue
-            xmi:type="uml:LiteralUnlimitedNatural"
-            xmi:id="_ZkhY6dyWEeSMca3X_2t5fA"
-            value="*"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_c4wDJt0tEeSiI7OV1mLOYA" name="libreria_libros" memberEnd="_c4wDJ90tEeSiI7OV1mLOYA _c4wDKt0tEeSiI7OV1mLOYA" navigableOwnedEnd="_c4wDJ90tEeSiI7OV1mLOYA _c4wDKt0tEeSiI7OV1mLOYA">
+      <ownedEnd xmi:id="_c4wDJ90tEeSiI7OV1mLOYA" name="libreria" type="_c4wDId0tEeSiI7OV1mLOYA" association="_c4wDJt0tEeSiI7OV1mLOYA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c4wDKN0tEeSiI7OV1mLOYA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c4wDKd0tEeSiI7OV1mLOYA" value="*"/>
       </ownedEnd>
-      <ownedEnd
-          xmi:id="_ZkhY6tyWEeSMca3X_2t5fA"
-          name="libros"
-          type="_ZkhY5NyWEeSMca3X_2t5fA"
-          aggregation="composite"
-          association="_ZkhY5tyWEeSMca3X_2t5fA">
-        <lowerValue
-            xmi:type="uml:LiteralInteger"
-            xmi:id="_ZkhY69yWEeSMca3X_2t5fA"
-            value="1"/>
-        <upperValue
-            xmi:type="uml:LiteralUnlimitedNatural"
-            xmi:id="_ZkhY7NyWEeSMca3X_2t5fA"
-            value="1"/>
+      <ownedEnd xmi:id="_c4wDKt0tEeSiI7OV1mLOYA" name="libros" type="_c4wDJN0tEeSiI7OV1mLOYA" aggregation="composite" association="_c4wDJt0tEeSiI7OV1mLOYA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c4wDK90tEeSiI7OV1mLOYA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c4wDLN0tEeSiI7OV1mLOYA" value="1"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement
-        xmi:type="uml:Class"
-        xmi:id="_ZkhY7dyWEeSMca3X_2t5fA"
-        name="ClienteParticular">
-      <generalization
-          xmi:id="_ZkhY7tyWEeSMca3X_2t5fA"
-          general="_ZkhY9tyWEeSMca3X_2t5fA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_c4wDLd0tEeSiI7OV1mLOYA" name="ClienteParticular">
+      <generalization xmi:id="_c4wDLt0tEeSiI7OV1mLOYA" general="_c4wDNt0tEeSiI7OV1mLOYA"/>
     </packagedElement>
-    <packagedElement
-        xmi:type="uml:Class"
-        xmi:id="_ZkhY79yWEeSMca3X_2t5fA"
-        name="ClienteEmpresa">
-      <generalization
-          xmi:id="_ZkhY8NyWEeSMca3X_2t5fA"
-          general="_ZkhY9dyWEeSMca3X_2t5fA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_c4wDL90tEeSiI7OV1mLOYA" name="ClienteEmpresa">
+      <generalization xmi:id="_c4wDMN0tEeSiI7OV1mLOYA" general="_c4wDNd0tEeSiI7OV1mLOYA"/>
     </packagedElement>
-    <packagedElement
-        xmi:type="uml:Class"
-        xmi:id="_ZkhY8dyWEeSMca3X_2t5fA"
-        name="Proveedor">
-      <generalization
-          xmi:id="_ZkhY8tyWEeSMca3X_2t5fA"
-          general="_ZkhY9dyWEeSMca3X_2t5fA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_c4wDMd0tEeSiI7OV1mLOYA" name="Proveedor">
+      <generalization xmi:id="_c4wDMt0tEeSiI7OV1mLOYA" general="_c4wDNd0tEeSiI7OV1mLOYA"/>
     </packagedElement>
   </uml:Package>
-  <uml:Package
-      xmi:id="_ZkhY89yWEeSMca3X_2t5fA"
-      name="commons">
-    <packagedElement
-        xmi:type="uml:Class"
-        xmi:id="_ZkhY9NyWEeSMca3X_2t5fA"
-        name="Negocio"/>
-    <packagedElement
-        xmi:type="uml:Class"
-        xmi:id="_ZkhY9dyWEeSMca3X_2t5fA"
-        name="PersonaJuridica"/>
-    <packagedElement
-        xmi:type="uml:Class"
-        xmi:id="_ZkhY9tyWEeSMca3X_2t5fA"
-        name="PersonaFisica"/>
-    <packagedElement
-        xmi:type="uml:Class"
-        xmi:id="_ZkhY99yWEeSMca3X_2t5fA"
-        name="Producto">
-      <ownedAttribute
-          xmi:id="_ZkhY-NyWEeSMca3X_2t5fA"
-          name="precio"
-          type="_ZkhY_tyWEeSMca3X_2t5fA"/>
-      <ownedAttribute
-          xmi:id="_ZkhY-dyWEeSMca3X_2t5fA"
-          name="stock"
-          type="_ZkhY_NyWEeSMca3X_2t5fA"/>
-      <ownedAttribute
-          xmi:id="_ZkhY-tyWEeSMca3X_2t5fA"
-          name="stockMin"
-          type="_ZkhY_NyWEeSMca3X_2t5fA"/>
+  <uml:Package xmi:id="_c4wDM90tEeSiI7OV1mLOYA" name="commons">
+    <packagedElement xmi:type="uml:Class" xmi:id="_c4wDNN0tEeSiI7OV1mLOYA" name="Negocio"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_c4wDNd0tEeSiI7OV1mLOYA" name="PersonaJuridica"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_c4wDNt0tEeSiI7OV1mLOYA" name="PersonaFisica"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_c4wDN90tEeSiI7OV1mLOYA" name="Producto">
+      <ownedAttribute xmi:id="_c4wDON0tEeSiI7OV1mLOYA" name="precio" type="_c4wDPt0tEeSiI7OV1mLOYA"/>
+      <ownedAttribute xmi:id="_c4wDOd0tEeSiI7OV1mLOYA" name="stock" type="_c4wDPN0tEeSiI7OV1mLOYA"/>
+      <ownedAttribute xmi:id="_c4wDOt0tEeSiI7OV1mLOYA" name="stockMin" type="_c4wDPN0tEeSiI7OV1mLOYA"/>
     </packagedElement>
   </uml:Package>
-  <uml:Package
-      xmi:id="_ZkhY-9yWEeSMca3X_2t5fA"
-      name="primitives">
-    <packagedElement
-        xmi:type="uml:DataType"
-        xmi:id="_ZkhY_NyWEeSMca3X_2t5fA"
-        name="Integer"/>
-    <packagedElement
-        xmi:type="uml:DataType"
-        xmi:id="_ZkhY_dyWEeSMca3X_2t5fA"
-        name="String"/>
-    <packagedElement
-        xmi:type="uml:DataType"
-        xmi:id="_ZkhY_tyWEeSMca3X_2t5fA"
-        name="Money"/>
-    <packagedElement
-        xmi:type="uml:DataType"
-        xmi:id="_ZkhY_9yWEeSMca3X_2t5fA"
-        name="Date"/>
+  <uml:Package xmi:id="_c4wDO90tEeSiI7OV1mLOYA" name="primitives">
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_c4wDPN0tEeSiI7OV1mLOYA" name="Integer"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_c4wDPd0tEeSiI7OV1mLOYA" name="String"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_c4wDPt0tEeSiI7OV1mLOYA" name="Money"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_c4wDP90tEeSiI7OV1mLOYA" name="Date"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_c4wDQN0tEeSiI7OV1mLOYA" name="Double"/>
   </uml:Package>
+  <uml:Property xmi:id="_c4wDQd0tEeSiI7OV1mLOYA" name="test" type="_c4wDPd0tEeSiI7OV1mLOYA"/>
+  <uml:Class xmi:id="_c4wDQt0tEeSiI7OV1mLOYA" name="Direccion">
+    <ownedAttribute xmi:id="_c4wDQ90tEeSiI7OV1mLOYA" name="calle" type="_c4wDPd0tEeSiI7OV1mLOYA"/>
+  </uml:Class>
 </xmi:XMI>

@@ -1,5 +1,4 @@
 -- @nsURI UmlMM=http://www.eclipse.org/uml2/4.0.0/UML
--- @nsURI UmlTypesMM=http://www.eclipse.org/uml2/4.0.0/Types
 -- @nsURI NegocioMM=http://negocio/1.0
 
 
@@ -60,36 +59,124 @@ rule Negocio2Class {
 		primitivesPkg: UmlMM!Package (
 			name <- 'primitives'
 		),
-		umlIntegerType: UmlMM!DataType (
+		umlIntegerType: UmlMM!PrimitiveType (
 			name <- 'Integer',
 			package <- primitivesPkg
 		),
-		umlStringType: UmlMM!DataType (
+		umlStringType: UmlMM!PrimitiveType (
 			name <- 'String',
 			package <- primitivesPkg
 		),
-		umlMoneyType: UmlMM!DataType (
+		umlMoneyType: UmlMM!PrimitiveType (
 			name <- 'Money',
 			package <- primitivesPkg
 		),
-		umlDateType: UmlMM!DataType (
+		umlDateType: UmlMM!PrimitiveType (
 			name <- 'Date',
+			package <- primitivesPkg
+		),
+		umlDoubleType: UmlMM!PrimitiveType (
+			name <- 'Double',
 			package <- primitivesPkg
 		)
 }
 
-rule AtributoSimple2Property{
-from 
-	nAtributoSimple: NegocioMM!AtributoSimple
-to
-	umlAtributoSimpleProperty: UmlMM!Property(
-		name<- nAtributoSimple.nombre,
-		type <- UmlTypesMM!UnlimitedNatural
-	)
+helper context String def: firstToUpper(): String =
+	self.substring(1, 1).toUpper().concat(self.substring(2, self.size()));
+
+helper context String def: firstToLower(): String =
+	self.substring(1, 1).toLower().concat(self.substring(2, self.size()));
+
+helper def: getIntegerPrimitiveType(): UmlMM!PrimitiveType =
+	thisModule -> resolveTemp(NegocioMM!Negocio.allInstances() -> first(),
+			'umlIntegerType');
+
+helper def: getStringPrimitiveType(): UmlMM!PrimitiveType =
+	thisModule -> resolveTemp(NegocioMM!Negocio.allInstances() -> first(),
+			'umlStringType');
+
+helper def: getMoneyPrimitiveType(): UmlMM!PrimitiveType =
+	thisModule -> resolveTemp(NegocioMM!Negocio.allInstances() -> first(),
+			'umlMoneyType');
+
+helper def: getDatePrimitiveType(): UmlMM!PrimitiveType =
+	thisModule -> resolveTemp(NegocioMM!Negocio.allInstances() -> first(), 'umlDateType');
+
+helper def: getRealPrimitiveType(): UmlMM!PrimitiveType =
+	thisModule -> resolveTemp(NegocioMM!Negocio.allInstances() -> first(),
+			'umlDoubleType');
+
+rule AtributoSimpleTexto2Property {
+	from
+		nAtributoSimple: NegocioMM!AtributoSimple (
+			nAtributoSimple.tipo = #TEXTO
+		)
+	to
+		umlAtributoSimpleProperty: UmlMM!Property (
+			name <- nAtributoSimple.nombre.firstToLower(),
+			type <- thisModule -> getStringPrimitiveType() --type <- #UnlimitedNatural
+			
+		)
 }
 
+rule AtributoSimpleEntero2Property {
+	from
+		nAtributoSimple: NegocioMM!AtributoSimple (
+			nAtributoSimple.tipo = #ENTERO
+		)
+	to
+		umlAtributoSimpleProperty: UmlMM!Property (
+			name <- nAtributoSimple.nombre.firstToLower(),
+			type <- thisModule -> getIntegerPrimitiveType()
+		)
+}
 
+rule AtributoSimpleMoneda2Property {
+	from
+		nAtributoSimple: NegocioMM!AtributoSimple (
+			nAtributoSimple.tipo = #MONEDA
+		)
+	to
+		umlAtributoSimpleProperty: UmlMM!Property (
+			name <- nAtributoSimple.nombre.firstToLower(),
+			type <- thisModule -> getMoneyPrimitiveType()
+		)
+}
 
+rule AtributoSimpleFecha2Property {
+	from
+		nAtributoSimple: NegocioMM!AtributoSimple (
+			nAtributoSimple.tipo = #FECHA
+		)
+	to
+		umlAtributoSimpleProperty: UmlMM!Property (
+			name <- nAtributoSimple.nombre.firstToLower(),
+			type <- thisModule -> getMoneyPrimitiveType()
+		)
+}
+
+rule AtributoSimpleReal2Property {
+	from
+		nAtributoSimple: NegocioMM!AtributoSimple (
+			nAtributoSimple.tipo = #REAL
+		)
+	to
+		umlAtributoSimpleProperty: UmlMM!Property (
+			name <- nAtributoSimple.nombre.firstToLower(),
+			type <- thisModule -> getDoublePrimitiveType()
+		)
+}
+
+rule AtributoCompuesto2Class {
+	from
+		nAtributoCompuesto: NegocioMM!AtributoCompuesto
+	to
+		umlAtributoSimpleProperty: UmlMM!Class (
+			name <- nAtributoCompuesto.nombre.firstToUpper(),
+			ownedAttribute <- nAtributoCompuesto.atributos -> select(a | a.
+					oclIsTypeOf(NegocioMM!AtributoSimple))
+		)
+}
 
 rule Producto2Class {
 	from

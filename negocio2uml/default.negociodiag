@@ -3,6 +3,25 @@
   <children xmi:type="notation:Node" xmi:id="_iZpQoM1aEeSDYoCA5pgJCg" type="2002">
     <children xmi:type="notation:DecorationNode" xmi:id="_iZpQpc1aEeSDYoCA5pgJCg" type="5006"/>
     <children xmi:type="notation:DecorationNode" xmi:id="_iZpQps1aEeSDYoCA5pgJCg" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_n-MlAN0WEeSiI7OV1mLOYA" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_n-MlBN0WEeSiI7OV1mLOYA" type="5004"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_n-MlBd0WEeSiI7OV1mLOYA" type="7002">
+          <children xmi:type="notation:Node" xmi:id="_xlNWAN0rEeSiI7OV1mLOYA" type="3002">
+            <children xmi:type="notation:DecorationNode" xmi:id="_xlNWBd0rEeSiI7OV1mLOYA" type="5002"/>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_xlNWAd0rEeSiI7OV1mLOYA"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_xlNWAt0rEeSiI7OV1mLOYA" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_xlNWA90rEeSiI7OV1mLOYA"/>
+            <element xmi:type="negocio:AtributoSimple" href="default.negocio#//@personas.0/@atributos.0/@atributos.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xlNWBN0rEeSiI7OV1mLOYA"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_n-MlBt0WEeSiI7OV1mLOYA"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_n-MlB90WEeSiI7OV1mLOYA"/>
+        </children>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_n-MlAd0WEeSiI7OV1mLOYA"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_n-MlAt0WEeSiI7OV1mLOYA" fontName="Segoe UI"/>
+        <element xmi:type="negocio:AtributoCompuesto" href="default.negocio#//@personas.0/@atributos.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n-MlA90WEeSiI7OV1mLOYA"/>
+      </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_iZpQp81aEeSDYoCA5pgJCg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_iZpQqM1aEeSDYoCA5pgJCg"/>
     </children>
