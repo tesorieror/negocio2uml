@@ -1,180 +1,123 @@
 -- @nsURI UmlMM=http://www.eclipse.org/uml2/4.0.0/UML
 -- @nsURI NegocioMM=http://negocio/1.0
-
+  
 
 module negocio2uml;
-create uml: UmlMM from negocio: NegocioMM;
+create umlModel: UmlMM from negocioModel: NegocioMM;
+
+unique lazy rule PrimitivePkg{
+	from
+		void: OclAny
+	to
+		primitivePackage: UmlMM!Package (
+			name <- 'primitives'
+		)
+}
+
+unique lazy rule DoublePrim{
+	from
+		void: OclAny
+	to
+		doublePrim: UmlMM!PrimitiveType (
+			name <- 'double',
+			package <- thisModule -> PrimitivePkg()
+		)
+}
+
+unique lazy rule DatePrim{
+	from
+		void: OclAny
+	to
+		datePrim: UmlMM!PrimitiveType (
+			name <- 'date',
+			package <- thisModule -> PrimitivePkg()
+		)
+}
+
+unique lazy rule StringPrim{
+	from
+		void: OclAny
+	to
+		stringPrim: UmlMM!PrimitiveType (
+			name <- 'string',
+			package <- thisModule -> PrimitivePkg()
+		)
+}
+
+unique lazy rule IntegerPrim{
+	from
+		void: OclAny
+	to
+		integerPrim: UmlMM!PrimitiveType (
+			name <- 'integer',
+			package <- thisModule -> PrimitivePkg()
+		)
+}
+
+unique lazy rule NegocioPkg{
+	from
+		n: NegocioMM!Negocio
+	to
+		nPkg: UmlMM!Model (
+			name <- n.nombre.toLower()
+		)
+}
 
 rule Negocio2Class {
 	from
 		n: NegocioMM!Negocio
 	to
-		umlClassNegocioConcrete: UmlMM!Class (
+		umlNegocioClass: UmlMM!Class (
 			name <- n.nombre,
-			package <- negocioPkg,
-			superClass <- umlClassNegocio,
-			ownedAttribute <- Sequence{umlNombreNegocio}
-		),
-		umlNombreNegocio: UmlMM!Property (
-			name <- 'nombre',
-			type <- umlStringType
-		),
-		negocioPkg: UmlMM!Package (
-			name <- n.nombre.toLower()
-		),
-		commonsPkg: UmlMM!Package (
-			name <- 'commons'
-		),
-		umlClassNegocio: UmlMM!Class (
-			name <- 'Negocio',
-			package <- commonsPkg
-		),
-		umlClassPersonaJuridica: UmlMM!Class (
-			name <- 'PersonaJuridica',
-			package <- commonsPkg
-		),
-		umlClassPersonaFisica: UmlMM!Class (
-			name <- 'PersonaFisica',
-			package <- commonsPkg
-		),
-		umlClassProducto: UmlMM!Class (
-			name <- 'Producto',
-			package <- commonsPkg,
-			ownedAttribute <- Sequence{umlPrecioProductoAttribute,
-						umlStockProductoAttribute,
-						umlStockMinProductoAttribute}
-		),
-		umlStockProductoAttribute: UmlMM!Property (
-			name <- 'stock',
-			type <- umlIntegerType
-		),
-		umlStockMinProductoAttribute: UmlMM!Property (
-			name <- 'stockMin',
-			type <- umlIntegerType
-		),
-		umlPrecioProductoAttribute: UmlMM!Property (
-			name <- 'precio',
-			type <- umlMoneyType
-		),
-		primitivesPkg: UmlMM!Package (
-			name <- 'primitives'
-		),
-		umlIntegerType: UmlMM!PrimitiveType (
-			name <- 'Integer',
-			package <- primitivesPkg
-		),
-		umlStringType: UmlMM!PrimitiveType (
-			name <- 'String',
-			package <- primitivesPkg
-		),
-		umlMoneyType: UmlMM!PrimitiveType (
-			name <- 'Money',
-			package <- primitivesPkg
-		),
-		umlDateType: UmlMM!PrimitiveType (
-			name <- 'Date',
-			package <- primitivesPkg
-		),
-		umlDoubleType: UmlMM!PrimitiveType (
-			name <- 'Double',
-			package <- primitivesPkg
+			package <- thisModule -> NegocioPkg(n),
+			ownedOperation <- n.personas -> collect(p | thisModule -> AgregarPersona(p))			
 		)
 }
 
-helper context String def: firstToUpper(): String =
-	self.substring(1, 1).toUpper().concat(self.substring(2, self.size()));
-
-helper context String def: firstToLower(): String =
-	self.substring(1, 1).toLower().concat(self.substring(2, self.size()));
-
-helper def: getIntegerPrimitiveType(): UmlMM!PrimitiveType =
-	thisModule -> resolveTemp(NegocioMM!Negocio.allInstances() -> first(),
-			'umlIntegerType');
-
-helper def: getStringPrimitiveType(): UmlMM!PrimitiveType =
-	thisModule -> resolveTemp(NegocioMM!Negocio.allInstances() -> first(),
-			'umlStringType');
-
-helper def: getMoneyPrimitiveType(): UmlMM!PrimitiveType =
-	thisModule -> resolveTemp(NegocioMM!Negocio.allInstances() -> first(),
-			'umlMoneyType');
-
-helper def: getDatePrimitiveType(): UmlMM!PrimitiveType =
-	thisModule -> resolveTemp(NegocioMM!Negocio.allInstances() -> first(), 'umlDateType');
-
-helper def: getRealPrimitiveType(): UmlMM!PrimitiveType =
-	thisModule -> resolveTemp(NegocioMM!Negocio.allInstances() -> first(),
-			'umlDoubleType');
-
-rule AtributoSimpleTexto2Property {
+lazy rule AgregarPersona {
 	from
-		nAtributoSimple: NegocioMM!AtributoSimple (
-			nAtributoSimple.tipo = #TEXTO
-		)
+		p: NegocioMM!Persona
 	to
-		umlAtributoSimpleProperty: UmlMM!Property (
-			name <- nAtributoSimple.nombre.firstToLower(),
-			type <- thisModule -> getStringPrimitiveType() --type <- #UnlimitedNatural
-			
+		agregarOperation: UmlMM!Operation (
+			name <- 'agregar' + p.nombre,
+			ownedParameter <- Sequence{personaParameter}
+		),
+		personaParameter: UmlMM!Parameter(
+			name <- 'p',
+			type <- p,
+			direction <- 'in'
 		)
 }
 
-rule AtributoSimpleEntero2Property {
+rule Persona2Class {
 	from
-		nAtributoSimple: NegocioMM!AtributoSimple (
-			nAtributoSimple.tipo = #ENTERO
-		)
+		nPersona: NegocioMM!Persona
 	to
-		umlAtributoSimpleProperty: UmlMM!Property (
-			name <- nAtributoSimple.nombre.firstToLower(),
-			type <- thisModule -> getIntegerPrimitiveType()
-		)
-}
-
-rule AtributoSimpleMoneda2Property {
-	from
-		nAtributoSimple: NegocioMM!AtributoSimple (
-			nAtributoSimple.tipo = #MONEDA
-		)
-	to
-		umlAtributoSimpleProperty: UmlMM!Property (
-			name <- nAtributoSimple.nombre.firstToLower(),
-			type <- thisModule -> getMoneyPrimitiveType()
-		)
-}
-
-rule AtributoSimpleFecha2Property {
-	from
-		nAtributoSimple: NegocioMM!AtributoSimple (
-			nAtributoSimple.tipo = #FECHA
-		)
-	to
-		umlAtributoSimpleProperty: UmlMM!Property (
-			name <- nAtributoSimple.nombre.firstToLower(),
-			type <- thisModule -> getMoneyPrimitiveType()
-		)
-}
-
-rule AtributoSimpleReal2Property {
-	from
-		nAtributoSimple: NegocioMM!AtributoSimple (
-			nAtributoSimple.tipo = #REAL
-		)
-	to
-		umlAtributoSimpleProperty: UmlMM!Property (
-			name <- nAtributoSimple.nombre.firstToLower(),
-			type <- thisModule -> getDoublePrimitiveType()
-		)
-}
-
-rule AtributoCompuesto2Class {
-	from
-		nAtributoCompuesto: NegocioMM!AtributoCompuesto
-	to
-		umlAtributoSimpleProperty: UmlMM!Class (
-			name <- nAtributoCompuesto.nombre.firstToUpper(),
-			ownedAttribute <- nAtributoCompuesto.atributos -> select(a | a.
-					oclIsTypeOf(NegocioMM!AtributoSimple))
+		umlClassPersona: UmlMM!Class (
+			name <- nPersona.nombre,
+			package <- thisModule -> NegocioPkg(nPersona.negocio)
+		),
+		umlPropertyNegocio: UmlMM!Property (
+			name <- nPersona.negocio.nombre.toLower(),
+			type <- nPersona.negocio,
+			upper <- 1,
+			lower <- 1,
+			association <- umlAssociationPersonas
+		),
+		umlPropertyPersona: UmlMM!Property (
+			name <- nPersona.nombre.toLower() + 's',
+			type <- nPersona,
+			upper <- -1,
+			lower <- 0,
+			aggregation <- #composite,
+			association <- umlAssociationPersonas
+		),
+		umlAssociationPersonas: UmlMM!Association (
+			package <- thisModule -> NegocioPkg(nPersona.negocio),
+			name <- nPersona.negocio.nombre.toLower() + '_' + nPersona.nombre.toLower() +
+					's',
+			navigableOwnedEnd <- Sequence{umlPropertyNegocio,
+						umlPropertyPersona}
 		)
 }
 
@@ -184,68 +127,34 @@ rule Producto2Class {
 	to
 		umlClassProducto: UmlMM!Class (
 			name <- nProducto.nombre,
-			superClass <- thisModule -> resolveTemp(nProducto.negocio,
-					'umlClassProducto'),
-			package <- thisModule -> resolveTemp(nProducto.negocio, 'negocioPkg')
+			package <- thisModule -> NegocioPkg(nProducto.negocio),
+			ownedAttribute <- Sequence{umlPropertyDescripcion,
+						umlPropertyPrecio,
+						umlPropertyStock,
+						umlPropertyStockMin}
 		),
-		umlAssociationProductos: UmlMM!Association (
-			--ownedEnd <- thisModule -> resolveTemp(nProducto.negocio,
-					-- 'umlClassNegocioConcrete')
-			--,
-			memberEnd <- Sequence{umlPropertyNegocio,
-						umlPropertyProductos},
-			navigableOwnedEnd <- Sequence{umlPropertyNegocio,
-						umlPropertyProductos},
-			package <- thisModule -> resolveTemp(nProducto.negocio, 'negocioPkg'),
-			name <- nProducto.negocio.nombre.toLower() + '_' + nProducto.nombre.toLower()
-					+ 's'
-		),
-		umlPropertyNegocio: UmlMM!Property (
-			name <- nProducto.negocio.nombre.toLower(),
-			association <- umlAssociationProductos,
-			type <- nProducto.negocio,
-			upper <- -1,
-			lower <- 0
-		),
-		umlPropertyProductos: UmlMM!Property (
-			name <- nProducto.nombre.toLower() + 's',
-			association <- umlAssociationProductos,
-			type <- umlClassProducto,
-			aggregation <- #composite,
+		umlPropertyDescripcion: UmlMM!Property (
+			name <- 'descripcion',
+			type <- thisModule -> StringPrim(),
 			upper <- 1,
 			lower <- 1
-		)
-}
-
-rule PersonaFisica2Class {
-	from
-		nPersonaFisica: NegocioMM!Persona (
-			nPersonaFisica.tipo = #FISICA
-		)
-	to
-		umlClassPersonaFisica: UmlMM!Class (
-			name <- nPersonaFisica.nombre,
-			superClass <- thisModule -> resolveTemp(nPersonaFisica.negocio,
-					'umlClassPersonaFisica'),
-			package <- thisModule -> resolveTemp(nPersonaFisica.negocio, 'negocioPkg')
-		) --,
-		--aPersonaFisica: UmlMM!Association (
-			--ownedEnd <- nPersonaFisica.negocio,
-			--memberEnd <- nPersonaFisica
-		--)
-	
-}
-
-rule PersonaJuridica2Class {
-	from
-		nPersonaJuridica: NegocioMM!Persona (
-			nPersonaJuridica.tipo = #JURIDICA
-		)
-	to
-		umlClassPersonaJuridica: UmlMM!Class (
-			name <- nPersonaJuridica.nombre,
-			superClass <- thisModule -> resolveTemp(nPersonaJuridica.negocio,
-					'umlClassPersonaJuridica'),
-			package <- thisModule -> resolveTemp(nPersonaJuridica.negocio, 'negocioPkg')
+		),
+		umlPropertyPrecio: UmlMM!Property (
+			name <- 'precio',
+			type <- thisModule -> DoublePrim(),
+			upper <- 1,
+			lower <- 1
+		),
+		umlPropertyStock: UmlMM!Property (
+			name <- 'stock',
+			type <- thisModule -> IntegerPrim(),
+			upper <- 1,
+			lower <- 1
+		),
+		umlPropertyStockMin: UmlMM!Property (
+			name <- 'stockMin',
+			type <- thisModule -> IntegerPrim(),
+			upper <- 1,
+			lower <- 1
 		)
 }
