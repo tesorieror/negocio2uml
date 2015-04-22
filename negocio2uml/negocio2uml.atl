@@ -1,6 +1,6 @@
 -- @nsURI UmlMM=http://www.eclipse.org/uml2/4.0.0/UML
 -- @nsURI NegocioMM=http://negocio/1.0
-  
+
 
 module negocio2uml;
 create umlModel: UmlMM from negocioModel: NegocioMM;
@@ -70,7 +70,7 @@ rule Negocio2Class {
 		umlNegocioClass: UmlMM!Class (
 			name <- n.nombre,
 			package <- thisModule -> NegocioPkg(n),
-			ownedOperation <- n.personas -> collect(p | thisModule -> AgregarPersona(p))			
+			ownedOperation <- n.personas -> collect(p | thisModule -> AgregarPersona(p))
 		)
 }
 
@@ -82,7 +82,7 @@ lazy rule AgregarPersona {
 			name <- 'agregar' + p.nombre,
 			ownedParameter <- Sequence{personaParameter}
 		),
-		personaParameter: UmlMM!Parameter(
+		personaParameter: UmlMM!Parameter (
 			name <- 'p',
 			type <- p,
 			direction <- 'in'
@@ -126,6 +126,7 @@ rule Producto2Class {
 		nProducto: NegocioMM!Producto
 	to
 		umlClassProducto: UmlMM!Class (
+			superClass <- Sequence{thisModule -> ProductoAbstract(nProducto.negocio)},
 			name <- nProducto.nombre,
 			package <- thisModule -> NegocioPkg(nProducto.negocio),
 			ownedAttribute <- Sequence{umlPropertyDescripcion,
@@ -156,5 +157,51 @@ rule Producto2Class {
 			type <- thisModule -> IntegerPrim(),
 			upper <- 1,
 			lower <- 1
+		)
+}
+
+lazy rule CreateAssociation {
+	from 
+		doc: NegocioMM!DocumentoComercial,
+		per: NegocioMM!Persona
+	to
+		asso: UmlMM!Association (
+			package <- thisModule -> NegocioPkg(doc.negocio)
+		),
+		prop1: UmlMM!Property (
+			name <- per.nombre,
+			association <- asso,
+			type <- per
+		),
+		prop2: UmlMM!Property (
+			name <- doc.nombre,
+			association <- asso,
+			type <- doc
+		)
+}
+
+rule DocComercial {
+	from
+		dc: NegocioMM!DocumentoComercial
+	to
+		cDC: UmlMM!Class (
+			name <- dc.nombre,
+			package <- thisModule -> NegocioPkg(dc.negocio)
+		)
+	do {
+		for (p in dc.personas) {
+			thisModule -> CreateAssociation(dc, p);
+		}
+	}
+}
+
+unique lazy rule ProductoAbstract{
+from
+		n: NegocioMM!Negocio	
+to
+		abstractProducto: UmlMM!Class (
+			package <- thisModule -> NegocioPkg(n),
+			name <- 'Producto',
+			isAbstract <- true
 		)
 }

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <negocio:Negocio xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:negocio="http://negocio/1.0" nombre="Libreria">
   <atributos xsi:type="negocio:AtributoSimple" nombre="test" tipo="TEXTO"/>
-  <personas id="1" nombre="ClienteEmpresa">
+  <personas id="1" nombre="ClienteEmpresa" documentos="//@documentos.0">
     <atributos xsi:type="negocio:AtributoCompuesto" nombre="direccion" cardinalidad="SIMPLE">
       <atributos xsi:type="negocio:AtributoSimple" nombre="Calle" cardinalidad="SIMPLE" tipo="TEXTO"/>
     </atributos>
   </personas>
   <personas id="2" nombre="Proveedor"/>
   <personas id="3" nombre="ClienteParticular" tipo="FISICA"/>
+  <documentos nombre="Factura" personas="//@personas.0"/>
   <productos nombre="Libro"/>
+  <productos nombre="Revista"/>
+  <productos nombre="Periodico"/>
 </negocio:Negocio>

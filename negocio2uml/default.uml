@@ -1,72 +1,72 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML">
-  <uml:Model xmi:id="_HusDUN9VEeS2zuXm0ea8nQ" name="libreria">
-    <packagedElement xmi:type="uml:Class" xmi:id="_HusDUd9VEeS2zuXm0ea8nQ" name="Libreria">
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_HusDUt9VEeS2zuXm0ea8nQ" name="agregarClienteEmpresa">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_HusDU99VEeS2zuXm0ea8nQ" name="p" type="_HusDWN9VEeS2zuXm0ea8nQ"/>
+  <uml:Model xmi:id="_nPk40Oi5EeSYBfwaf2BhZg" name="libreria">
+    <packagedElement xmi:type="uml:Class" xmi:id="_nPk40ei5EeSYBfwaf2BhZg" name="Libreria">
+      <ownedOperation xmi:id="_nPk40ui5EeSYBfwaf2BhZg" name="agregarClienteEmpresa">
+        <ownedParameter xmi:id="_nPk40-i5EeSYBfwaf2BhZg" name="p" type="_nPk42Oi5EeSYBfwaf2BhZg"/>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_HusDVN9VEeS2zuXm0ea8nQ" name="agregarProveedor">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_HusDVd9VEeS2zuXm0ea8nQ" name="p" type="_HusDYN9VEeS2zuXm0ea8nQ"/>
+      <ownedOperation xmi:id="_nPk41Oi5EeSYBfwaf2BhZg" name="agregarProveedor">
+        <ownedParameter xmi:id="_nPk41ei5EeSYBfwaf2BhZg" name="p" type="_nPk44Oi5EeSYBfwaf2BhZg"/>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_HusDVt9VEeS2zuXm0ea8nQ" name="agregarClienteParticular">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_HusDV99VEeS2zuXm0ea8nQ" name="p" type="_HusDaN9VEeS2zuXm0ea8nQ"/>
+      <ownedOperation xmi:id="_nPk41ui5EeSYBfwaf2BhZg" name="agregarClienteParticular">
+        <ownedParameter xmi:id="_nPk41-i5EeSYBfwaf2BhZg" name="p" type="_nPk46Oi5EeSYBfwaf2BhZg"/>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_HusDWN9VEeS2zuXm0ea8nQ" name="ClienteEmpresa"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_HusDWd9VEeS2zuXm0ea8nQ" name="libreria_clienteempresas" memberEnd="_HusDWt9VEeS2zuXm0ea8nQ _HusDXd9VEeS2zuXm0ea8nQ" navigableOwnedEnd="_HusDWt9VEeS2zuXm0ea8nQ _HusDXd9VEeS2zuXm0ea8nQ">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_HusDWt9VEeS2zuXm0ea8nQ" name="libreria" type="_HusDUd9VEeS2zuXm0ea8nQ" association="_HusDWd9VEeS2zuXm0ea8nQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HusDW99VEeS2zuXm0ea8nQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HusDXN9VEeS2zuXm0ea8nQ" value="1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_nPk42Oi5EeSYBfwaf2BhZg" name="ClienteEmpresa"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_nPk42ei5EeSYBfwaf2BhZg" name="libreria_clienteempresas" memberEnd="_nPk42ui5EeSYBfwaf2BhZg _nPk43ei5EeSYBfwaf2BhZg" navigableOwnedEnd="_nPk42ui5EeSYBfwaf2BhZg _nPk43ei5EeSYBfwaf2BhZg">
+      <ownedEnd xmi:id="_nPk42ui5EeSYBfwaf2BhZg" name="libreria" type="_nPk40ei5EeSYBfwaf2BhZg" association="_nPk42ei5EeSYBfwaf2BhZg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nPk42-i5EeSYBfwaf2BhZg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nPk43Oi5EeSYBfwaf2BhZg" value="1"/>
       </ownedEnd>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_HusDXd9VEeS2zuXm0ea8nQ" name="clienteempresas" type="_HusDWN9VEeS2zuXm0ea8nQ" aggregation="composite" association="_HusDWd9VEeS2zuXm0ea8nQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HusDXt9VEeS2zuXm0ea8nQ"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HusDX99VEeS2zuXm0ea8nQ" value="*"/>
-      </ownedEnd>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_HusDYN9VEeS2zuXm0ea8nQ" name="Proveedor"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_HusDYd9VEeS2zuXm0ea8nQ" name="libreria_proveedors" memberEnd="_HusDYt9VEeS2zuXm0ea8nQ _HusDZd9VEeS2zuXm0ea8nQ" navigableOwnedEnd="_HusDYt9VEeS2zuXm0ea8nQ _HusDZd9VEeS2zuXm0ea8nQ">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_HusDYt9VEeS2zuXm0ea8nQ" name="libreria" type="_HusDUd9VEeS2zuXm0ea8nQ" association="_HusDYd9VEeS2zuXm0ea8nQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HusDY99VEeS2zuXm0ea8nQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HusDZN9VEeS2zuXm0ea8nQ" value="1"/>
-      </ownedEnd>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_HusDZd9VEeS2zuXm0ea8nQ" name="proveedors" type="_HusDYN9VEeS2zuXm0ea8nQ" aggregation="composite" association="_HusDYd9VEeS2zuXm0ea8nQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HusDZt9VEeS2zuXm0ea8nQ"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HusDZ99VEeS2zuXm0ea8nQ" value="*"/>
+      <ownedEnd xmi:id="_nPk43ei5EeSYBfwaf2BhZg" name="clienteempresas" type="_nPk42Oi5EeSYBfwaf2BhZg" aggregation="composite" association="_nPk42ei5EeSYBfwaf2BhZg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nPk43ui5EeSYBfwaf2BhZg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nPk43-i5EeSYBfwaf2BhZg" value="*"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_HusDaN9VEeS2zuXm0ea8nQ" name="ClienteParticular"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_HusDad9VEeS2zuXm0ea8nQ" name="libreria_clienteparticulars" memberEnd="_HusDat9VEeS2zuXm0ea8nQ _HusDbd9VEeS2zuXm0ea8nQ" navigableOwnedEnd="_HusDat9VEeS2zuXm0ea8nQ _HusDbd9VEeS2zuXm0ea8nQ">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_HusDat9VEeS2zuXm0ea8nQ" name="libreria" type="_HusDUd9VEeS2zuXm0ea8nQ" association="_HusDad9VEeS2zuXm0ea8nQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HusDa99VEeS2zuXm0ea8nQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HusDbN9VEeS2zuXm0ea8nQ" value="1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_nPk44Oi5EeSYBfwaf2BhZg" name="Proveedor"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_nPk44ei5EeSYBfwaf2BhZg" name="libreria_proveedors" memberEnd="_nPk44ui5EeSYBfwaf2BhZg _nPk45ei5EeSYBfwaf2BhZg" navigableOwnedEnd="_nPk44ui5EeSYBfwaf2BhZg _nPk45ei5EeSYBfwaf2BhZg">
+      <ownedEnd xmi:id="_nPk44ui5EeSYBfwaf2BhZg" name="libreria" type="_nPk40ei5EeSYBfwaf2BhZg" association="_nPk44ei5EeSYBfwaf2BhZg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nPk44-i5EeSYBfwaf2BhZg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nPk45Oi5EeSYBfwaf2BhZg" value="1"/>
       </ownedEnd>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_HusDbd9VEeS2zuXm0ea8nQ" name="clienteparticulars" type="_HusDaN9VEeS2zuXm0ea8nQ" aggregation="composite" association="_HusDad9VEeS2zuXm0ea8nQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HusDbt9VEeS2zuXm0ea8nQ"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HusDb99VEeS2zuXm0ea8nQ" value="*"/>
+      <ownedEnd xmi:id="_nPk45ei5EeSYBfwaf2BhZg" name="proveedors" type="_nPk44Oi5EeSYBfwaf2BhZg" aggregation="composite" association="_nPk44ei5EeSYBfwaf2BhZg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nPk45ui5EeSYBfwaf2BhZg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nPk45-i5EeSYBfwaf2BhZg" value="*"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_HusDcN9VEeS2zuXm0ea8nQ" name="Libro">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_HusDcd9VEeS2zuXm0ea8nQ" name="descripcion" type="_HusDft9VEeS2zuXm0ea8nQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HusDct9VEeS2zuXm0ea8nQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HusDc99VEeS2zuXm0ea8nQ" value="1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_nPk46Oi5EeSYBfwaf2BhZg" name="ClienteParticular"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_nPk46ei5EeSYBfwaf2BhZg" name="libreria_clienteparticulars" memberEnd="_nPk46ui5EeSYBfwaf2BhZg _nPk47ei5EeSYBfwaf2BhZg" navigableOwnedEnd="_nPk46ui5EeSYBfwaf2BhZg _nPk47ei5EeSYBfwaf2BhZg">
+      <ownedEnd xmi:id="_nPk46ui5EeSYBfwaf2BhZg" name="libreria" type="_nPk40ei5EeSYBfwaf2BhZg" association="_nPk46ei5EeSYBfwaf2BhZg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nPk46-i5EeSYBfwaf2BhZg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nPk47Oi5EeSYBfwaf2BhZg" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_nPk47ei5EeSYBfwaf2BhZg" name="clienteparticulars" type="_nPk46Oi5EeSYBfwaf2BhZg" aggregation="composite" association="_nPk46ei5EeSYBfwaf2BhZg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nPk47ui5EeSYBfwaf2BhZg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nPk47-i5EeSYBfwaf2BhZg" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_nPk48Oi5EeSYBfwaf2BhZg" name="Libro">
+      <ownedAttribute xmi:id="_nPk48ei5EeSYBfwaf2BhZg" name="descripcion" type="_nPk4_ui5EeSYBfwaf2BhZg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nPk48ui5EeSYBfwaf2BhZg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nPk48-i5EeSYBfwaf2BhZg" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_HusDdN9VEeS2zuXm0ea8nQ" name="precio" type="_HusDf99VEeS2zuXm0ea8nQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HusDdd9VEeS2zuXm0ea8nQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HusDdt9VEeS2zuXm0ea8nQ" value="1"/>
+      <ownedAttribute xmi:id="_nPk49Oi5EeSYBfwaf2BhZg" name="precio" type="_nPk4_-i5EeSYBfwaf2BhZg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nPk49ei5EeSYBfwaf2BhZg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nPk49ui5EeSYBfwaf2BhZg" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_HusDd99VEeS2zuXm0ea8nQ" name="stock" type="_HusDgN9VEeS2zuXm0ea8nQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HusDeN9VEeS2zuXm0ea8nQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HusDed9VEeS2zuXm0ea8nQ" value="1"/>
+      <ownedAttribute xmi:id="_nPk49-i5EeSYBfwaf2BhZg" name="stock" type="_nPk5AOi5EeSYBfwaf2BhZg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nPk4-Oi5EeSYBfwaf2BhZg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nPk4-ei5EeSYBfwaf2BhZg" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_HusDet9VEeS2zuXm0ea8nQ" name="stockMin" type="_HusDgN9VEeS2zuXm0ea8nQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HusDe99VEeS2zuXm0ea8nQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HusDfN9VEeS2zuXm0ea8nQ" value="1"/>
+      <ownedAttribute xmi:id="_nPk4-ui5EeSYBfwaf2BhZg" name="stockMin" type="_nPk5AOi5EeSYBfwaf2BhZg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nPk4--i5EeSYBfwaf2BhZg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nPk4_Oi5EeSYBfwaf2BhZg" value="1"/>
       </ownedAttribute>
     </packagedElement>
   </uml:Model>
-  <uml:Package xmi:id="_HusDfd9VEeS2zuXm0ea8nQ" name="primitives">
-    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_HusDft9VEeS2zuXm0ea8nQ" name="string"/>
-    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_HusDf99VEeS2zuXm0ea8nQ" name="double"/>
-    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_HusDgN9VEeS2zuXm0ea8nQ" name="integer"/>
+  <uml:Package xmi:id="_nPk4_ei5EeSYBfwaf2BhZg" name="primitives">
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_nPk4_ui5EeSYBfwaf2BhZg" name="string"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_nPk4_-i5EeSYBfwaf2BhZg" name="double"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_nPk5AOi5EeSYBfwaf2BhZg" name="integer"/>
   </uml:Package>
 </xmi:XMI>
